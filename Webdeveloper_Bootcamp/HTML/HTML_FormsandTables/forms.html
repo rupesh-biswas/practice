@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms Demo</title>
+</head>
+
+<body>
+    <h1>Forms Demo</h1>
+    <button>OUTSIDE FORM!</button>
+
+    <form action="/tacos">
+        <p>
+            <label for=" username">Enter a username:</label>
+            <input id="username" type="text" placeholder="username" name="username">
+        </p>
+        <p>
+            <label for="password">Enter a password</label>
+            <input id="password" type="password" placeholder="password" name="password">
+        </p>
+        <p>
+            <label for="color">Enter a color</label>
+            <input id="color" type="color" name="color">
+        </p>
+        <p>
+            <!-- Alternate way to label an input (less common) -->
+            <label for="number">Enter a number
+                <input id="number" type="number" placeholder="enter a number" name="num" min="1" max="1000" step="2">
+            </label>
+
+        </p>
+        <p>
+            <label for="date">Select a date</label>
+            <input id="date" type="date" name="date">
+        </p>
+        <!-- this button doesn't submit the form b/c of the "type" attribute -->
+        <button type="button">Regular button (won't submit)</button>
+        <!-- This button submits the form! -->
+        <button>Submit!!!</button>
+        <!-- So does this one: -->
+        <input type="submit" value="Click ME!">
+    </form>
+    <hr>
+    <!-- Outside of a form, no default behavior -->
+    <button>Not Inside Form</button>
+    <hr>
+    <h2>Hijacking Searches</h2>
+    <h3>Search Reddit</h3>
+    <p>
+    <form action="https://www.reddit.com/search">
+        <input type="text" name="q" id="query">
+        <button>Search</button>
+    </form>
+    </p>
+    <h3>Search Google</h3>
+    <p>
+    <form action="https://www.google.com/search">
+        <input type="text" name="q" id="query">
+        <button>Search GOOGLE</button>
+    </form>
+    </p>
+    <h3>Search Youtube</h3>
+    <p>
+    <form action="https://www.youtube.com/results">
+        <input type="text" name="search_query" id="query">
+        <button>Search Youtube</button>
+    </form>
+    </p>
+    <hr>
+    <h2>More Inputs!</h2>
+    <form action="/birds">
+        <input type="checkbox" name="agree_tos" id="agree">
+        <label for="agree">I agree to everything</label>
+        <p>
+            <label for="xs">XS:</label>
+            <input type="radio" name="size" id="xs" value="xs">
+            <label for="s">S:</label>
+            <input type="radio" name="size" id="s" value="s">
+            <label for="m">M:</label>
+            <input type="radio" name="size" id="m" value="m">
+        </p>
+        <p>
+            <label for="meal">Please Select an Entree</label>
+            <select name="meal" id="meal">
+                <option value="">--Please select an option</option>
+                <option value="fish">Fish</option>
+                <option value="veg">Vegetarian</option>
+                <option value="steak">Steak</option>
+            </select>
+
+        </p>
+        <hr>
+        <p>
+            <label for="cheese">Amount of Cheese</label>
+            <input type="range" name="cheese_level" id="cheese" min="1" max="100" step="7" value="75">
+        </p>
+        <p>
+            <label for="requests">Any Special Requests?</label>
+            <br>
+            <textarea name="requests" id="requests" cols="30" rows="10" placeholder="Type something here"></textarea>
+        </p>
+        <button>Submit</button>
+    </form>
+
+    <hr>
+    <form action="/submit">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" placeholder="username">
+        <br>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="password">
+        <button>Register</button>
+    </form>
+
+    <hr>
+    <h2>Validations Demo</h2>
+    <form action="/dummy">
+        <label for="first">Enter First Name</label>
+        <input type="text" name="first" id="first" required>
+        <p>
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" minlength="5" maxlength="20" required>
+        </p>
+
+        <p>
+            <label for="email">Enter your Email</label>
+            <input type="email" name="email" id="email" required>
+            <label for="url">Enter an URL</label>
+            <input type="url" name="url" id="url">
+        </p>
+        <button>Submit</button>
+    </form>
+
+</body>
+
+</html>

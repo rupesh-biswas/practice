@@ -1,0 +1,17 @@
+h1 {
+    text-align: center;
+    font-weight: normal;
+    text-decoration: #ae00ff underline wavy;
+    letter-spacing: 15px;
+    font-size: 80px;
+    /* font-family: Big Caslon, Futura, Arial, sans-serif; */
+    font-family: monospace;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    line-height: 2;
+}
