@@ -24,6 +24,7 @@ function updateScores(player, opponent) {
             opponent.display.classList.add('has-text-danger');
             player.button.disabled = true;
             opponent.button.disabled = true;
+            as
         }
         if (player.score === opponent.score) {
             if (winningScore - player.score === 1) {
