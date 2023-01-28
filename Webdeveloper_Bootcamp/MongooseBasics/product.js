@@ -83,7 +83,6 @@ const findProduct = async () => {
 Product.fireSale().then(res => console.log(res))
 
 
-
 // const bike = new Product({ name: 'Cycling Jersey', price: 28.50, categories: ['Cycling'], size: 'M' })
 // bike.save()
 //     .then(data => {

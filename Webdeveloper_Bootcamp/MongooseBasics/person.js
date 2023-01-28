@@ -35,3 +35,34 @@ personSchema.post('save', async function () {
 const Person = mongoose.model('Person', personSchema);
 
 // const tammy = new Person({first:'Tammy', last:'Chow'})
+
+
+class Random {
+
+    fullName = null
+
+    constructor(a, b) {
+        this.a = a
+        this.b = b
+    }
+
+    firstMethod(someName) {
+        return this
+    }
+
+    someMethod(whatToDo) {
+        // What to do is the function that you passed in
+        this.c = whatToDo
+    }
+}
+
+//The get property is not present in the database
+const random = new Random()
+const fullNameFunction = function () {
+    return `${this.first} ${this.last}`
+}
+
+random.firstMethod('fullName').someMethod(fullNameFunction)
+
+
+random.fullName()
