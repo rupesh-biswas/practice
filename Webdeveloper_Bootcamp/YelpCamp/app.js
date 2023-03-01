@@ -76,6 +76,7 @@ app.use(mongoSanitize({
 app.use(helmet());
 
 const scriptSrcUrls = [
+    "https://stackpath.bootstrapcdn.com/",
     "https://api.tiles.mapbox.com/",
     "https://api.mapbox.com/",
     "https://kit.fontawesome.com/",
