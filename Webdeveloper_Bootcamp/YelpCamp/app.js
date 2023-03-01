@@ -37,18 +37,19 @@ app.use(express.urlencoded({ extended: true }))
 app.use(methodOveride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
+const secret = process.env.SECRET || 'notgoodsecret';
 const store = MongoStore.create({
     mongoUrl: dbUrl,
     touchAfter: 24 * 60 * 60,
     crypto: {
-        secret: 'notgoodsecret'
+        secret
     }
 });
 
 const sessionConfig = {
     store,
     name: 'session',
-    secret: 'thisisnotgoodway',
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -75,7 +76,6 @@ app.use(mongoSanitize({
 app.use(helmet());
 
 const scriptSrcUrls = [
-    "https://stackpath.bootstrapcdn.com/",
     "https://api.tiles.mapbox.com/",
     "https://api.mapbox.com/",
     "https://kit.fontawesome.com/",
@@ -89,6 +89,7 @@ const styleSrcUrls = [
     "https://fonts.googleapis.com/",
     "https://use.fontawesome.com/",
     "https://cdn.jsdelivr.net/",
+    "https://stackpath.bootstrapcdn.com/",
 ];
 const connectSrcUrls = [
     "https://api.mapbox.com/",
@@ -152,7 +153,8 @@ app.use((err, req, res, next) => {
     // res.send('Oh Boy, something went wrong');
 })
 
-app.listen(3000, () => {
-    console.log('Serving on port 3000');
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Serving on port ${port}`);
 })
 
