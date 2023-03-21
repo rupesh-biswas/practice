@@ -30,6 +30,7 @@ class Game extends Component {
       }
     };
     this.roll = this.roll.bind(this);
+    this.toggleLocked = this.toggleLocked.bind(this);
     this.doScore = this.doScore.bind(this);
   }
 

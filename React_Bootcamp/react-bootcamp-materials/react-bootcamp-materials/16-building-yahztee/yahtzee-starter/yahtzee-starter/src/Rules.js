@@ -16,7 +16,7 @@ class Rule {
 
   sum(dice) {
     // sum of all dice
-    return dice.reduce((prev, curr) => prev + curr);
+    return dice.reduce((accumulator, currentValue) => accumulator + currentValue);
   }
 
   freq(dice) {
