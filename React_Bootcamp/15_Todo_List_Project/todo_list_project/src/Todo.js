@@ -1,9 +1,22 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import './Todo.css';
+
+// function usePrevious(value) {
+//     const ref = useRef();
+//     useEffect(() => {
+//         ref.current = value;
+//     }, [value]);
+//     return ref.current;
+// }
 
 function Todo(props) {
     const [isEditing, setIsEditing] = useState(false);
     const [task, setTask] = useState(props.task);
+    // const prevTodos = usePrevious(props);
+    // console.log(prevTodos);
+
+
+
 
     function toggleForm() {
         setIsEditing(!isEditing);
@@ -19,6 +32,13 @@ function Todo(props) {
     function handleToggle(evt) {
         props.toggleTodo(props.id);
     }
+
+    useEffect(() => {
+        console.log("Component has been rendered");
+        return () => {
+            console.log("In component will unmount");
+        };
+    });
 
     let result;
     if (isEditing) {
@@ -54,6 +74,7 @@ function Todo(props) {
             </div>
         )
     }
+
 
     return result;
 }

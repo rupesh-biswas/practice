@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NewTodoForm from "./NewTodoForm";
 import Todo from "./Todo";
 import { v4 as uuidv4 } from 'uuid';
@@ -16,6 +16,7 @@ function TodoList(props) {
     function removeTodo(id) {
         setTodos(todos.filter(todo => todo.id !== id))
     }
+
 
     function updateTodo(id, updatedTask) {
         const updatedTodos = todos.map(todo => {
