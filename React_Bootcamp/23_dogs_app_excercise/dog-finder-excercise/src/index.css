@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Source Sans Pro";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(
+    100deg,
+    rgba(250, 214, 195, 0.8) 30%,
+    #b0eae8 120%
+  );
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
