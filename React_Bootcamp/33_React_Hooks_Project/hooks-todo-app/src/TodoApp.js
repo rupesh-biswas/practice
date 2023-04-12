@@ -1,18 +1,10 @@
 import { Typography, Paper, AppBar, Toolbar, Grid } from "@mui/material";
-import useTodoState from "./hooks/useTodoState";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
+import { TodoProvider } from "./context/todos.context";
 
 
 function TodoApp() {
-
-    // const initialTodos = [
-    //     { id: 1, task: "Clean Fish Tank", completed: false },
-    //     { id: 2, task: "Wash Car", completed: true },
-    //     { id: 3, task: "Grow Beard", completed: false },
-    // ]
-
-    const { todos, addTodo, removeTodo, toggleTodo, editTodo } = useTodoState("");
 
 
     return (
@@ -31,13 +23,10 @@ function TodoApp() {
             </AppBar>
             <Grid container justifyContent={"center"}>
                 <Grid item xs={11} md={8} lg={4}>
-                    <TodoForm addTodo={addTodo} />
-                    <TodoList
-                        todos={todos}
-                        removeTodo={removeTodo}
-                        toggleTodo={toggleTodo}
-                        editTodo={editTodo}
-                    />
+                    <TodoProvider>
+                        <TodoForm />
+                        <TodoList />
+                    </TodoProvider>
                 </Grid>
             </Grid>
         </Paper>

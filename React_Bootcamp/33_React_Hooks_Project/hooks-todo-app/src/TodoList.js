@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Paper, List, Divider } from "@mui/material";
 import Todo from "./Todo";
+import { TodosContext } from "./context/todos.context";
 
-function TodoList(props) {
-    const { todos, removeTodo, toggleTodo, editTodo } = props;
+function TodoList() {
+    const todos = useContext(TodosContext);
 
     if (todos.length) {
         return (
@@ -14,9 +15,6 @@ function TodoList(props) {
                             <Todo
                                 key={todo.id}
                                 {...todo}
-                                removeTodo={removeTodo}
-                                toggleTodo={toggleTodo}
-                                editTodo={editTodo}
                             />
                             {i < todos.length - 1 && <Divider />}
                         </React.Fragment >
