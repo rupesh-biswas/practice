@@ -1,4 +1,3 @@
-import { useState } from "react";
 import BookShow from "./BookShow";
 
 export default function BookList({ books, onDelete, onEdit }) {
