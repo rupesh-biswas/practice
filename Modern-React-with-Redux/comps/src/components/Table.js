@@ -1,6 +1,13 @@
+import { Fragment } from "react";
+
 export default function Table({ data, config, KeyFn }) {
 
-    const renderedTheads = config.map((column) => <th key={column.label}>{column.label}</th>)
+    const renderedTheads = config.map((column) => {
+        if (column.header) {
+            return <Fragment key={column.label}>{column.header()}</Fragment>;
+        }
+        return <th key={column.label}>{column.label}</th>
+    })
 
     const renderedTbody = data.map((item) => {
         return (
