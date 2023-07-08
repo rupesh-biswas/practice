@@ -1,7 +1,179 @@
 {
-    "users":[
-        {"id":1, "name": "Myra"}
-    ],
-    "albums":[],
-    "photos":[]
+  "users": [
+    {
+      "id": 1,
+      "name": "Myra"
+    },
+    {
+      "name": "Stella Lueilwitz-DuBuque",
+      "id": 3
+    },
+    {
+      "name": "Laura Sanford",
+      "id": 4
+    },
+    {
+      "name": "Colin Wisozk",
+      "id": 5
+    }
+  ],
+  "albums": [
+    {
+      "userId": 3,
+      "title": "Handcrafted Frozen Shirt",
+      "id": 9
+    },
+    {
+      "userId": 3,
+      "title": "Sleek Concrete Keyboard",
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "title": "Unbranded Frozen Soap",
+      "id": 15
+    },
+    {
+      "userId": 1,
+      "title": "Practical Concrete Keyboard",
+      "id": 16
+    },
+    {
+      "userId": 4,
+      "title": "Intelligent Steel Chips",
+      "id": 17
+    },
+    {
+      "userId": 4,
+      "title": "Licensed Soft Shoes",
+      "id": 18
+    },
+    {
+      "userId": 5,
+      "title": "Refined Soft Tuna",
+      "id": 19
+    }
+  ],
+  "photos": [
+    {
+      "albumId": 15,
+      "url": "https://loremflickr.com/150/150?lock=7940263066468352",
+      "id": 1
+    },
+    {
+      "albumId": 15,
+      "url": "https://picsum.photos/seed/Sc8hPIE8aQ/150/150",
+      "id": 2
+    },
+    {
+      "albumId": 15,
+      "url": "https://loremflickr.com/150/150?lock=6901863649640448",
+      "id": 4
+    },
+    {
+      "albumId": 15,
+      "url": "https://loremflickr.com/150/150?lock=7175866683490304",
+      "id": 5
+    },
+    {
+      "albumId": 15,
+      "url": "https://picsum.photos/seed/swEM8w20L/150/150",
+      "id": 6
+    },
+    {
+      "albumId": 16,
+      "url": "https://picsum.photos/seed/chjrbvt/150/150",
+      "id": 8
+    },
+    {
+      "albumId": 16,
+      "url": "https://loremflickr.com/150/150?lock=5095576563613696",
+      "id": 9
+    },
+    {
+      "albumId": 16,
+      "url": "https://picsum.photos/seed/ViSos/150/150",
+      "id": 10
+    },
+    {
+      "albumId": 17,
+      "url": "https://loremflickr.com/150/150?lock=523279225847808",
+      "id": 11
+    },
+    {
+      "albumId": 18,
+      "url": "https://picsum.photos/seed/miZ4xx4QD/150/150",
+      "id": 12
+    },
+    {
+      "albumId": 17,
+      "url": "https://picsum.photos/seed/3IbIcc/150/150",
+      "id": 13
+    },
+    {
+      "albumId": 18,
+      "url": "https://picsum.photos/seed/TQ2cRQ7tFq/150/150",
+      "id": 14
+    },
+    {
+      "albumId": 17,
+      "url": "https://picsum.photos/seed/ihvXDe/150/150",
+      "id": 15
+    },
+    {
+      "albumId": 19,
+      "url": "https://picsum.photos/seed/Rx6u3U/150/150",
+      "id": 17
+    },
+    {
+      "albumId": 19,
+      "url": "https://picsum.photos/seed/pLfSZPiYD3/150/150",
+      "id": 18
+    },
+    {
+      "albumId": 19,
+      "url": "https://loremflickr.com/150/150?lock=6099863443865600",
+      "id": 19
+    },
+    {
+      "albumId": 18,
+      "url": "https://loremflickr.com/150/150?lock=8225325724991488",
+      "id": 20
+    },
+    {
+      "albumId": 17,
+      "url": "https://picsum.photos/seed/cNKlH75z/150/150",
+      "id": 21
+    },
+    {
+      "albumId": 16,
+      "url": "https://picsum.photos/seed/ocPv7J/150/150",
+      "id": 22
+    },
+    {
+      "albumId": 15,
+      "url": "https://loremflickr.com/150/150?lock=1504580653285376",
+      "id": 23
+    },
+    {
+      "albumId": 15,
+      "url": "https://picsum.photos/seed/b5Rb7Le/150/150",
+      "id": 24
+    },
+    {
+      "albumId": 15,
+      "url": "https://loremflickr.com/150/150?lock=8475698622627840",
+      "id": 25
+    },
+    {
+      "albumId": 15,
+      "url": "https://picsum.photos/seed/Uqykn/150/150",
+      "id": 26
+    },
+    {
+      "albumId": 15,
+      "url": "https://loremflickr.com/150/150?lock=668559543894016",
+      "id": 27
+    }
+  ]
 }
