@@ -1,9 +1,10 @@
 import { createRoot } from "react-dom/client";
+import UserSearch from "./Refs/UserSearch";
 
 function App() {
   return (
     <div>
-      <h1>Hi there</h1>
+      <UserSearch />
     </div>
   );
 }
