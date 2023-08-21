@@ -1,8 +1,5 @@
 # jbook-rupesh
 
-![npm version](https://img.shields.io/npm/v/jbook-rupesh.svg)
-![license](https://img.shields.io/npm/l/jbook-rupesh.svg)
-
 **jbook-rupesh** is an npm package that provides an in-browser JavaScript notebook where users can create and interact with cells containing both Markdown and code. It utilizes React, lerana, express, and commander packages to offer a seamless and interactive coding experience.
 
 The package uses the power of [esbuild](https://esbuild.github.io/) with WebAssembly to execute code in the browser efficiently.
