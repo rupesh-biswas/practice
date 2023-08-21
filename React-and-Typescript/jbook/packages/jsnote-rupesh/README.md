@@ -1,6 +1,6 @@
-# jbook-rupesh
+# jsnote-rupesh
 
-**jbook-rupesh** is an npm package that provides an in-browser JavaScript notebook where users can create and interact with cells containing both Markdown and code. It utilizes React, lerana, express, and commander packages to offer a seamless and interactive coding experience.
+**jsnote-rupesh** is an npm package that provides an in-browser JavaScript notebook where users can create and interact with cells containing both Markdown and code. It utilizes React, lerana, express, and commander packages to offer a seamless and interactive coding experience.
 
 The package uses the power of [esbuild](https://esbuild.github.io/) with WebAssembly to execute code in the browser efficiently.
 
@@ -13,10 +13,10 @@ The package uses the power of [esbuild](https://esbuild.github.io/) with WebAsse
 
 ## Installation
 
-To use **jbook-rupesh**, you can install it globally using npm or yarn:
+To use **jsnote-rupesh**, you can install it globally using npm or yarn:
 
 ```bash
-npm install jbook-rupesh
+npm install jsnote-rupesh
 ```
 
 ## Usage
@@ -24,14 +24,14 @@ npm install jbook-rupesh
 After installing the package, you can start the notebook server by running the following command:
 
 ```bash
-npx jbook-rupesh serve
+npx jsnote-rupesh serve
 ```
 
 Once the server is running, you can access the notebook interface by opening your web browser and navigating to [http://localhost:4005](http://localhost:4005).
 
 ## Commands
 
-- `npx jbook-rupesh serve`: Starts the notebook server.
+- `npx jsnote-rupesh serve`: Starts the notebook server.
 
 ## Cell Types
 
@@ -45,7 +45,7 @@ Code cells are used for writing and executing JavaScript code. Code entered in t
 
 ## Dependencies
 
-**jbook-rupesh** relies on the following packages:
+**jsnote-rupesh** relies on the following packages:
 
 - [React](https://reactjs.org/)
 - [lerana](https://www.npmjs.com/package/lerana)
@@ -57,4 +57,4 @@ Code cells are used for writing and executing JavaScript code. Code entered in t
 
 ---
 
-Feel free to contribute, report issues, or provide suggestions for improvements. Happy coding with **jbook-rupesh**! 🚀
+Feel free to contribute, report issues, or provide suggestions for improvements. Happy coding with **jsnote-rupesh**! 🚀
