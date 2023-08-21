@@ -1,0 +1,83 @@
+{
+  "name": "@rubis/local-client",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "build"
+  ],
+  "devDependencies": {
+    "@babel/parser": "^7.22.7",
+    "@babel/traverse": "^7.22.8",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "@monaco-editor/react": "^4.5.1",
+    "@redux-devtools/extension": "^3.2.5",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@uiw/react-md-editor": "^3.23.5",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.39",
+    "@types/react": "^18.2.17",
+    "@types/react-dom": "^18.2.7",
+    "@types/react-redux": "7.1.25",
+    "@types/react-resizable": "^3.0.4",
+    "axios": "^1.4.0",
+    "bulmaswatch": "^0.8.1",
+    "classnames": "^2.3.2",
+    "esbuild-wasm": "0.8.27",
+    "immer": "^10.0.2",
+    "localforage": "^1.10.0",
+    "monaco-editor": "^0.41.0",
+    "monaco-jsx-highlighter": "^2.0.4",
+    "prettier": "^3.0.1",
+    "react": "^18.2.0",
+    "react-app-rewired": "^2.2.1",
+    "react-dom": "^18.2.0",
+    "react-redux": "8.1.2",
+    "react-resizable": "^3.0.5",
+    "react-scripts": "5.0.1",
+    "redux": "4.2.1",
+    "redux-thunk": "2.3.0",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4",
+    "assert": "^2.0.0",
+    "browserify-fs": "^1.0.0",
+    "buffer": "^6.0.3",
+    "crypto": "npm:crypto-browserify@3.12.0",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
+    "stream": "npm:stream-browserify@3.0.0",
+    "tty-browserify": "^0.0.1",
+    "url": "^0.11.1",
+    "util": "npm:util@0.12.5"
+  },
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject",
+    "prepublishOnly": "npm run build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
