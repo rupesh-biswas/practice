@@ -34,7 +34,6 @@ export default function App() {
       plugins: [unpkgPathPlugin(), fetchPlugin(input)],
       define: {
         global: "window",
-        "process.env.NODE_ENV": '"production"',
       },
     });
 
