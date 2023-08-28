@@ -32,9 +32,6 @@ export default function App() {
       bundle: true,
       write: false,
       plugins: [unpkgPathPlugin(), fetchPlugin(input)],
-      define: {
-        global: "window",
-      },
     });
 
     iframeRef.current.contentWindow.postMessage(
