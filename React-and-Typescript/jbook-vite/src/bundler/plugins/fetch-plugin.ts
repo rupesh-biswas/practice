@@ -10,34 +10,32 @@ export function fetchPlugin(inputCode: string) {
   return {
     name: "fetch-plugin",
     setup(build: esbuild.PluginBuild) {
-      build.onLoad({ filter: /^index\.(js|ts)$/ }, (args) => {
+      build.onLoad({ filter: /^index\.(js|ts)$/ }, () => {
         return {
           loader: "tsx",
           contents: inputCode,
         };
       });
 
-      build.onLoad({ filter: /.*/ }, async (args: any) => {
-        const cachedResult = await fileCache.getItem<esbuild.OnLoadResult>(
-          args.path
-        );
+      // build.onLoad({ filter: /.*/ }, async (args: esbuild.OnLoadArgs) => {
+      //   const cachedResult = await fileCache.getItem<esbuild.OnLoadResult>(
+      //     args.path
+      //   );
 
-        if (cachedResult) {
-          return cachedResult;
-        }
-      });
+      //   if (cachedResult) {
+      //     console.log(cachedResult);
+      //     return cachedResult;
+      //   }
+      // });
 
-      build.onLoad({ filter: /.css$/ }, async (args: any) => {
+      build.onLoad({ filter: /.css$/ }, async (args: esbuild.OnLoadArgs) => {
         const { data, request } = await axios.get(args.path);
 
-        // const escaped = data
-        //   .replace(/\n/g, "")
-        //   .replace(/"/g, '\\"')
-        //   .replace(/'/g, "\\'");
+        const escaped = data.replace(/\\/g, "\\\\");
 
         const contents = `
           const style = document.createElement('style');
-          style.innerText = \`${data}\`; 
+          style.innerText = \`${escaped}\`; 
           document.head.appendChild(style);
           `;
 
@@ -50,7 +48,7 @@ export function fetchPlugin(inputCode: string) {
         return result;
       });
 
-      build.onLoad({ filter: /.*/ }, async (args: any) => {
+      build.onLoad({ filter: /.*/ }, async (args: esbuild.OnLoadArgs) => {
         const { data, request } = await axios.get(args.path);
 
         const result: esbuild.OnLoadResult = {
