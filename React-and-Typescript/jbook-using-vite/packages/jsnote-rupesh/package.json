@@ -1,6 +1,6 @@
 {
   "name": "jsnote-rupesh",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "",
   "publishConfig": {
     "access": "public"
@@ -18,8 +18,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@rubis/local-api": "^2.0.5",
-    "@rubis/local-client": "^2.0.5"
+    "@rubis/local-api": "^2.0.6",
+    "@rubis/local-client": "^2.0.6"
   },
   "devDependencies": {
     "@types/node": "^20.5.0",
