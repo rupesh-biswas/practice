@@ -5,7 +5,7 @@
     "access": "public"
   },
   "files": [
-    "build"
+    "dist"
   ],
   "scripts": {
     "start": "vite",
