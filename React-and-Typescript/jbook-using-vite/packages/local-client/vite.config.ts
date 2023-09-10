@@ -7,6 +7,10 @@ import rollupNodePolyFill from "rollup-plugin-polyfill-node";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  server: {
+    port: 5174,
+    strictPort: true,
+  },
   optimizeDeps: {
     esbuildOptions: {
       // Node.js global to browser globalThis
