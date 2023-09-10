@@ -1,6 +1,6 @@
 {
   "name": "@rubis/local-api",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "",
   "files": [
     "dist"
@@ -23,7 +23,7 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
-    "@rubis/local-client": "^2.0.0",
+    "@rubis/local-client": "^2.0.2",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "http-proxy-middleware": "^2.0.6"
