@@ -7,12 +7,12 @@ export default function useCumulativeCode(cellId: string) {
 
     const showFunc = `
           import _React from 'react';
-          import _ReactDOM from 'react-dom';
+          import { createRoot as cR} from 'react-dom/client';
           var show = (value)=>{
             const root = document.querySelector("#root");
             if(typeof value === 'object') {
               if (value.$$typeof && value.props) {
-                _ReactDOM.render(value, root)
+                cR(root).render(value)
               } else {
                   root.innerHTML = JSON.stringify(value);
               }
