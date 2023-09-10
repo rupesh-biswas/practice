@@ -18,10 +18,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@rubis/local-client": "^2.0.3"
+    "@rubis/local-client": "^2.0.3",
+    "@rubis/local-api": "^2.0.3"
   },
   "devDependencies": {
-    "@rubis/local-api": "^2.0.3",
     "@types/node": "^20.5.0",
     "commander": "^11.0.0",
     "esbuild": "0.8.26",
