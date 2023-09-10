@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@rubis/local-client": "^1.1.0"
+    "@rubis/local-client": "^2.0.0"
   },
   "devDependencies": {
     "@rubis/local-api": "^2.0.1",
