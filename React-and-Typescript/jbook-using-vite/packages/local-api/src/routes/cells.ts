@@ -20,18 +20,18 @@ export const createCellsRouter = (filename: string, dir: string) => {
   const router = express.Router();
   router.use(express.json());
 
-  const fullPath = path.join(dir, filename);
+  const dbPath = path.join(dir, filename + "-db.json");
 
   router.get("/cells", (req: Request, res: Response) => {
     // Read the file
     let data;
     try {
-      const result = fs.readFileSync(fullPath, { encoding: "utf-8" });
+      const result = fs.readFileSync(dbPath, { encoding: "utf-8" });
       data = JSON.parse(result);
     } catch (err) {
       if (isLocalApiError(err)) {
         if (err.code === "ENOENT") {
-          fs.writeFileSync(fullPath, "[]", "utf-8");
+          fs.writeFileSync(dbPath, "[]", "utf-8");
           data = [];
         }
       } else {
@@ -49,7 +49,7 @@ export const createCellsRouter = (filename: string, dir: string) => {
 
     try {
       // write the cells into the file
-      fs.writeFileSync(fullPath, JSON.stringify(cells), "utf-8");
+      fs.writeFileSync(dbPath, JSON.stringify(cells), "utf-8");
 
       res.send({ status: "ok" });
     } catch (err) {
