@@ -1,12 +1,8 @@
 import express, { Request, Response } from "express";
 import fs from "fs";
 import path from "path";
-
-interface Cell {
-  id: string;
-  content: string;
-  type: "text" | "code";
-}
+import { Cell } from "../types";
+import { fileWriter } from "../fileWriter";
 
 interface LocalApiError {
   code: string;
@@ -21,6 +17,7 @@ export const createCellsRouter = (filename: string, dir: string) => {
   router.use(express.json());
 
   const dbPath = path.join(dir, filename + "-db.json");
+  const notebookPath = path.join(dir, filename + ".js");
 
   router.get("/cells", (req: Request, res: Response) => {
     // Read the file
@@ -50,6 +47,8 @@ export const createCellsRouter = (filename: string, dir: string) => {
     try {
       // write the cells into the file
       fs.writeFileSync(dbPath, JSON.stringify(cells), "utf-8");
+
+      fileWriter(notebookPath, cells);
 
       res.send({ status: "ok" });
     } catch (err) {
