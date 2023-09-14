@@ -12,6 +12,7 @@ import { Cell, CellTypes } from "../cell";
 import bundler from "../../bundler";
 import axios from "axios";
 import { RootState } from "../reducers";
+import introData from "./intoCells.json";
 
 export const updateCell = (id: string, content: string): UpdateCellAction => {
   return {
@@ -79,7 +80,10 @@ export const fetchCells = () => {
     dispatch({ type: ActionType.FETCH_CELLS });
 
     try {
-      const { data }: { data: Cell[] } = await axios.get("/cells");
+      let { data }: { data: Cell[] } = await axios.get("/cells");
+      if (data.length === 0) {
+        data = introData as Cell[];
+      }
       dispatch({
         type: ActionType.FETCH_CELLS_COMPLETE,
         payload: data,

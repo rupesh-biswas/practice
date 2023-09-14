@@ -31,6 +31,7 @@ export default function CodeCell({ cell }: CodeCellProps) {
 
   function handleChange(value: string, err: string) {
     if (err) {
+      console.error(err);
     } else {
       updateCell(cell.id, value);
     }
