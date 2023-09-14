@@ -3,13 +3,16 @@ import { unpkgPathPlugin } from "./plugins/unkg-path-plugin";
 import { fetchPlugin } from "./plugins/fetch-plugin";
 
 let service = false;
+let initializing = false;
 export default async function bundler(rawCode: string) {
-  if (!service) {
+  if (!service && !initializing) {
+    initializing = true;
     await esbuild.initialize({
       worker: true,
       wasmURL: "https://unpkg.com/esbuild-wasm@0.19.2/esbuild.wasm",
     });
     service = true;
+    initializing = false;
   }
 
   try {
