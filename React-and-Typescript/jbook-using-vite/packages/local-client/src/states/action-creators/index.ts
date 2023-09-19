@@ -8,7 +8,7 @@ import {
   Direction,
   Action,
 } from "../actions";
-import { Cell, CellTypes } from "../cell";
+import { Cell, CellTypes } from "../../types/cell";
 import bundler from "../../bundler";
 import axios from "axios";
 import { RootState } from "../reducers";
