@@ -4,25 +4,28 @@ import Preview from "./Preview";
 import { Cell } from "../states";
 import { useActions } from "../hooks/use-actions";
 import Resizable from "./resizable";
-import { useTypedSelector } from "../hooks/use-Typed-selector";
+import { useTypedDispatch, useTypedSelector } from "../hooks/typed-redux-hooks";
 import "./code-cell.css";
 import useCumulativeCode from "../hooks/use-cumulative-code";
+import { createBundle } from "../redux/store";
 
 interface CodeCellProps {
   cell: Cell;
 }
 
 export default function CodeCell({ cell }: CodeCellProps) {
-  const { updateCell, createBundle } = useActions();
+  const { updateCellContent } = useActions();
+  const dispatch = useTypedDispatch();
+
   const bundle = useTypedSelector((state) => state.bundles[cell.id]);
   const cumulativeCode = useCumulativeCode(cell.id);
   useEffect(() => {
     if (!bundle) {
-      createBundle(cell.id, cumulativeCode);
+      dispatch(createBundle({ id: cell.id, input: cumulativeCode }));
       return;
     }
     const timer = setTimeout(async () => {
-      createBundle(cell.id, cumulativeCode);
+      dispatch(createBundle({ id: cell.id, input: cumulativeCode }));
     }, 750);
 
     return () => clearTimeout(timer);
@@ -33,7 +36,7 @@ export default function CodeCell({ cell }: CodeCellProps) {
     if (err) {
       console.error(err);
     } else {
-      updateCell(cell.id, value);
+      updateCellContent({ cellId: cell.id, content: value });
     }
   }
 
@@ -53,7 +56,7 @@ export default function CodeCell({ cell }: CodeCellProps) {
                 max='100'></progress>
             </div>
           ) : (
-            <Preview code={bundle.code} err={bundle.err} />
+            <Preview code={bundle.compiledCode} err={bundle.error} />
           )}
         </div>
       </div>

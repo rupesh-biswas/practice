@@ -23,6 +23,7 @@
     "@fortawesome/fontawesome-free": "^5.15.1",
     "@monaco-editor/react": "^4.5.1",
     "@redux-devtools/extension": "^3.2.5",
+    "@reduxjs/toolkit": "^1.9.5",
     "@types/babel__traverse": "^7.20.1",
     "@types/node": "^20.6.0",
     "@types/react": "^18.2.15",

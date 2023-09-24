@@ -12,21 +12,21 @@ export default function ActionBar({ id }: ActionBarProps) {
     <div className='action-bar'>
       <button
         className='button is-primary is-small'
-        onClick={() => moveCell(id, "up")}>
+        onClick={() => moveCell({ cellId: id, direction: "up" })}>
         <span className='icon'>
           <i className='fas fa-arrow-up'></i>
         </span>
       </button>
       <button
         className='button is-primary is-small'
-        onClick={() => moveCell(id, "down")}>
+        onClick={() => moveCell({ cellId: id, direction: "down" })}>
         <span className='icon'>
           <i className='fas fa-arrow-down'></i>
         </span>
       </button>
       <button
         className='button is-primary is-small'
-        onClick={() => deleteCell(id)}>
+        onClick={() => deleteCell({ cellId: id })}>
         <span className='icon'>
           <i className='fas fa-times'></i>
         </span>

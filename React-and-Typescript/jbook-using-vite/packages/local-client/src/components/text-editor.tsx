@@ -12,7 +12,7 @@ export default function TextEditor({ cell }: TextEditorProps) {
   const [editing, setEditing] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
 
-  const { updateCell } = useActions();
+  const { updateCellContent } = useActions();
 
   useEffect(() => {
     const listener = (event: MouseEvent) => {
@@ -37,7 +37,9 @@ export default function TextEditor({ cell }: TextEditorProps) {
       <div className='text-editor' ref={ref}>
         <MDEditor
           value={cell.content}
-          onChange={(v) => updateCell(cell.id, v || "")}
+          onChange={(v) =>
+            updateCellContent({ cellId: cell.id, content: v || "" })
+          }
         />
       </div>
     );

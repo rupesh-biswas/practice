@@ -9,13 +9,13 @@ export default function AddCell({
   previousCellId,
   forceVisible,
 }: AddcellProps) {
-  const { insertCellAfter } = useActions();
+  const { insertCell } = useActions();
   return (
     <div className={`add-cell ${forceVisible ? "force-visible" : ""}`}>
       <div className='add-buttons'>
         <button
           className='button is-rounded is-primary is-small'
-          onClick={() => insertCellAfter(previousCellId, "code")}>
+          onClick={() => insertCell({ cellId: previousCellId, type: "code" })}>
           <span className='icon is-small'>
             <i className='fas fa-plus' />
           </span>
@@ -23,7 +23,7 @@ export default function AddCell({
         </button>
         <button
           className='button is-rounded is-primary is-small'
-          onClick={() => insertCellAfter(previousCellId, "text")}>
+          onClick={() => insertCell({ cellId: previousCellId, type: "text" })}>
           <span className='icon is-small'>
             <i className='fas fa-plus' />
           </span>

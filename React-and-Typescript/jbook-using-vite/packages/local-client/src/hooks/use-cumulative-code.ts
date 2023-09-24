@@ -1,4 +1,4 @@
-import { useTypedSelector } from "./use-Typed-selector";
+import { useTypedSelector } from "./typed-redux-hooks";
 
 export default function useCumulativeCode(cellId: string) {
   return useTypedSelector((state) => {

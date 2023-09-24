@@ -26,14 +26,14 @@ export default async function bundler(rawCode: string) {
     });
 
     return {
-      code: result.outputFiles[0].text,
-      err: "",
+      compiledCode: result.outputFiles[0].text,
+      error: "",
     };
   } catch (err) {
     if (err instanceof Error) {
       return {
-        code: "",
-        err: err.message,
+        compiledCode: "",
+        error: err.message,
       };
     } else {
       throw err;

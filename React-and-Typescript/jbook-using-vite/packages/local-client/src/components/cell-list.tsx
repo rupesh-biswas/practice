@@ -1,19 +1,24 @@
 import { Fragment, useEffect } from "react";
-import { useTypedSelector } from "../hooks/use-Typed-selector";
 import AddCell from "./add-cell";
 import CellListItem from "./cell-list-item";
 import "./cell-list.css";
-import { useActions } from "../hooks/use-actions";
+import { useTypedDispatch, useTypedSelector } from "../hooks/typed-redux-hooks";
+import { fetchCells } from "../redux/store";
 
 export default function CellList() {
-  const cells = useTypedSelector(({ cells: { data, order } }) =>
-    order.map((id) => data[id])
-  );
-  const { fetchCells } = useActions();
+  const disptach = useTypedDispatch();
 
+  // fetch cells from file on initial load
   useEffect(() => {
-    fetchCells();
+    disptach(fetchCells());
   }, []);
+
+  const { cells, loading } = useTypedSelector(
+    ({ cells: { data, order, loading } }) => {
+      const cells = order.map((id) => data[id]);
+      return { cells, loading };
+    }
+  );
 
   const renderedCells = cells.map((cell) => (
     <Fragment key={cell.id}>
@@ -22,6 +27,9 @@ export default function CellList() {
     </Fragment>
   ));
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className='cell-list'>
       <AddCell forceVisible={cells.length === 0} previousCellId={null} />
