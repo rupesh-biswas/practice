@@ -1,8 +1,8 @@
 import MDEditor from "@uiw/react-md-editor";
 import { useEffect, useRef, useState } from "react";
-import { Cell } from "../states";
 import { useActions } from "../hooks/use-actions";
 import "./text-editor.css";
+import { Cell } from "../types/cell";
 
 interface TextEditorProps {
   cell: Cell;

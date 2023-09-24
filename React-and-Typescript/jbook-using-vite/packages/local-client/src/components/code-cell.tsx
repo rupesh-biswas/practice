@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import CodeEditor from "./code-editor";
 import Preview from "./Preview";
-import { Cell } from "../states";
 import { useActions } from "../hooks/use-actions";
 import Resizable from "./resizable";
 import { useTypedDispatch, useTypedSelector } from "../hooks/typed-redux-hooks";
 import "./code-cell.css";
 import useCumulativeCode from "../hooks/use-cumulative-code";
 import { createBundle } from "../redux/store";
+import { Cell } from "../types/cell";
 
 interface CodeCellProps {
   cell: Cell;
