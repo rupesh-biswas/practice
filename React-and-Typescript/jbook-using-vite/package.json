@@ -1,6 +1,9 @@
 {
   "name": "jbook-rupesh",
   "private": true,
+  "repository": "https://github.com/rupesh-biswas/practice/tree/main/React-and-Typescript/jbook-using-vite",
+  "author": "rupesh <rupeshbiswas1997@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
     "lerna": "^3.22.1"
   },
