@@ -24,4 +24,5 @@ function insertionSort(arr) {
   return arr;
 }
 
-insertionSort([2, 1, 9, 76, 4]);
+// insertionSort([2, 1, 9, 76, 4])
+insertionSort([5, 3, 4, 1, 2]);
