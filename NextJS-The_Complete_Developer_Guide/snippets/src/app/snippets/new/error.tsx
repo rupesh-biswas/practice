@@ -6,5 +6,5 @@ interface ErrorPageProps {
 }
 
 export default function ErrorPage({ error }: ErrorPageProps) {
-  return;
+  return <div>{error.message}</div>;
 }
