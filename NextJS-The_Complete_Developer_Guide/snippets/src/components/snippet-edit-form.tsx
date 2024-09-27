@@ -1,5 +1,6 @@
 "use client";
 
+import * as actions from "@/actions";
 import { Editor } from "@monaco-editor/react";
 import { Snippet } from "@prisma/client";
 import { useState } from "react";
@@ -15,6 +16,8 @@ export default function SnippetEditForm({ snippet }: SnippetEditFormProps) {
     setCode(value);
   }
 
+  const editSnippetAction = actions.editSnippet.bind(null, snippet.id, code);
+
   return (
     <div>
       <Editor
@@ -25,6 +28,9 @@ export default function SnippetEditForm({ snippet }: SnippetEditFormProps) {
         options={{ minimap: { enabled: false } }}
         onChange={handleChange}
       />
+      <form action={editSnippetAction}>
+        <button className="rounded border p-2">Save</button>
+      </form>
     </div>
   );
 }
