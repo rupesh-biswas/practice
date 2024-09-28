@@ -1,6 +1,7 @@
 'use server'
 
 import { db } from "@/db";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 export async function editSnippet(id: number, code: string) {
@@ -9,6 +10,7 @@ export async function editSnippet(id: number, code: string) {
         data:{code}
     });
 
+    revalidatePath(`/snippets/${id}`);
     redirect(`/snippets/${id}`);
 }
 
@@ -16,12 +18,13 @@ export async function deleteSnippet(id:number) {
     await db.snippet.delete({
         where: {id}
     });
-    
+
+    revalidatePath('/');
     redirect('/');
 }
 
 export async function createSnippet(formState: {message:string},formData: FormData) {
-    let snippet;
+    // let snippet;
     try{
         // extract the title and code and do some validation
         const title = formData.get("title");
@@ -36,7 +39,7 @@ export async function createSnippet(formState: {message:string},formData: FormDa
         }
 
         // create a new record in database
-        snippet = await db.snippet.create({
+        await db.snippet.create({
           data: {
             title,
             code,
@@ -51,9 +54,12 @@ export async function createSnippet(formState: {message:string},formData: FormDa
         }
     }
 
-    if(snippet){
-        // Redirect use to snippet page
-        redirect(`/snippets/${snippet.id}`);
-    }
-    redirect("/snippets");
+    // if(snippet){
+    //     // Redirect use to snippet page
+    //     redirect(`/snippets/${snippet.id}`);
+    // }
+
+    revalidatePath('/');
+    // Redirect user to root page
+    redirect('/');
   }
