@@ -9,15 +9,17 @@ import {
   Textarea,
 } from "@nextui-org/react";
 import * as actions from "@/actions";
-import { useFormState } from "react-dom";
+import { useFormState, useFormStatus } from "react-dom";
+import FormButton from "../common/form-button";
 
 export default function TopicCreateForm() {
   const [formState, action] = useFormState(actions.createTopic, { errors: {} });
+  const { pending } = useFormStatus();
 
   return (
     <Popover placement="left">
       <PopoverTrigger>
-        <Button>Create a Topic</Button>
+        <Button color="primary">Create a Topic</Button>
       </PopoverTrigger>
       <PopoverContent>
         <form action={action}>
@@ -46,7 +48,7 @@ export default function TopicCreateForm() {
               </div>
             ) : null}
 
-            <Button type="submit">Submit</Button>
+            <FormButton>Save</FormButton>
           </div>
         </form>
       </PopoverContent>

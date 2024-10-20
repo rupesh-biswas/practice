@@ -12,7 +12,9 @@ import { useSession } from "next-auth/react";
 
 export default function HeaderAuth() {
   const session = useSession();
+
   let authContent: React.ReactNode;
+
   if (session.status === "loading") {
     authContent = null;
   } else if (session.data?.user) {
