@@ -3,16 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "dotenv -e .env.local -- next dev",
+    "build": "prisma migrate deploy && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "start:db": "docker run --rm -p 5432:5432 -v postgres-data:/var/lib/postgresql/data -e POSTGRES_HOST_AUTH_METHOD=trust postgres",
+    "prisma:migrate:local": "dotenv -e .env.local -- npx prisma migrate dev --schema=prisma/schema.prisma",
+    "prisma:generate:local": "dotenv -e .env.local -- npx prisma generate --schema=prisma/schema.prisma",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@auth/core": "0.18.1",
     "@auth/prisma-adapter": "1.0.6",
     "@nextui-org/react": "2.2.9",
     "@prisma/client": "^5.20.0",
+    "dotenv-cli": "^7.4.2",
     "framer-motion": "11.9.0",
     "next": "14.0.2",
     "next-auth": "5.0.0-beta.3",

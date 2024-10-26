@@ -8,7 +8,6 @@ export type CommentWithAuthor = Comment & {
 
 export const fetchCommentByPostId = cache(
   (postId: string): Promise<CommentWithAuthor[]> => {
-    console.log("Making a db query");
     return db.comment.findMany({
       where: { postId },
       include: { user: { select: { name: true, image: true } } },
