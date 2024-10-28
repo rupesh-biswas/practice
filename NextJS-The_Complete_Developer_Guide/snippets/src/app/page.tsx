@@ -22,12 +22,12 @@ export default async function Home() {
 
   return (
     <div>
-      <div className="m-2 flex items-center justify-between">
+      {/* <div className="m-2 flex items-center justify-between">
         <div className="text-xl font-bold">Snippets</div>
         <Link href={"/snippets/new"} className="rounded border p-2">
           New
         </Link>
-      </div>
+      </div> */}
       <div className="flex flex-col gap-2">{renderedSnippets}</div>
     </div>
   );
