@@ -3,14 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "dotenv -e .env.local -- next dev",
+    "build": "prisma migrate deploy && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "start:db": "docker run --rm -p 5432:5432 -v postgres-data:/var/lib/postgresql/data -e POSTGRES_HOST_AUTH_METHOD=trust postgres",
+    "prisma:migrate:local": "dotenv -e .env.local -- npx prisma migrate dev --schema=prisma/schema.prisma",
+    "prisma:generate:local": "dotenv -e .env.local -- npx prisma generate --schema=prisma/schema.prisma",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@monaco-editor/react": "^4.6.0",
     "@prisma/client": "^5.19.1",
+    "dotenv-cli": "^7.4.2",
     "next": "14.2.13",
     "react": "^18",
     "react-dom": "^18"
