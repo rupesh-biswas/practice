@@ -4,6 +4,8 @@ import TopicList from "@/components/topic/topic-list";
 import { fetchTopPosts } from "@/db/queries/posts";
 import { Divider } from "@nextui-org/react";
 
+export const dynamic = "force-dynamic"; // Ensures dynamic rendering of homepage
+
 export default async function Home() {
   return (
     <div className="grid grid-cols-4 gap-4 p-4">
