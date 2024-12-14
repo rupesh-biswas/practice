@@ -10,7 +10,7 @@ const client = redis.createClient({
 client.set("visits", 0);
 
 app.get("/", (req, res) => {
-  process.exit(0);
+  process.exit(0); // 0 we are saying to exist. Any other number is considered failure
   client.get("visits", (err, visits) => {
     res.send("Number of visits is " + visits);
     client.set("visits", parseFloat(visits) + 1);
