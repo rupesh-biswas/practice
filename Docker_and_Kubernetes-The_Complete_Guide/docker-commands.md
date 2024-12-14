@@ -51,8 +51,7 @@ Attach to an existing running container and run shell
 docker exec -it <container-id> sh
 ```
 
-
-## Commit a changed image 
+## Commit a changed image
 
 ```bash
 docker commit -c "CMD '<start_command>'" <running_image_id>
