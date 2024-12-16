@@ -8,7 +8,7 @@ branches:
 
 before_install:
     - cd /Docker_and_Kubernetes-The_Complete_Guide/frontend
-    - docker build -t rupeshbiswas/frontend -f Dockerfile.dev
+    - docker build -t rupeshbiswas/frontend -f Dockerfile.dev .
 
 script:
     - docker run -e CI=true rupeshbiswas/frontend npm run test
