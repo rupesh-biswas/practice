@@ -13,6 +13,30 @@ docker ps // running
 docker ps -a // all
 ```
 
+## Build a docker image
+
+```bash
+docker build .
+```
+
+or to give it a tag. (optionally version number can also be provided)
+
+```bash
+docker build . -t <tag>:<version>
+```
+
+e.g.
+
+```bash
+docker build . -t rupeshbiswas/simpleapp
+```
+
+- Also to run build using a custom docker file
+
+```bash
+docker build -f <filename> .
+```
+
 ## Run a docker image
 
 Run and see the logs
@@ -31,6 +55,12 @@ e.g.
 
 ```bash
  docker run -d redis
+```
+
+## Run docker in interactive mode
+
+```bash
+docker run -it 51524d29efcb npm run test
 ```
 
 ## Stop a container
@@ -100,7 +130,7 @@ docker run -p 5000:8080 rupeshbiswas/simpleweb
 
 When the docker compose file is created in the same director and proper naming is giving then the networking is also handled by docker compose.
 
-- Note: For docker compose to work correctly the file location is important. It takes the context of folder where it is located and uses the docker file present in it.
+> Note: For docker compose to work correctly the file location is important. It takes the context of folder where it is located and uses the docker file present in it.
 
 ```bash
 docker-compose up
@@ -126,8 +156,33 @@ docker-compose down
 
 ## List running docker compose containers
 
-- Note: All docker compose commands needs to be run in the same directory where the docker file is including the below
+> Note: All docker compose commands needs to be run in the same directory where the docker file is including the below
 
 ```bash
 docker-compose ps
 ```
+
+## Attach volumes to a image and run it
+
+This only works in linux shell or gitBash:
+
+```bash
+docker run -p 3000:3000 -v $(pwd):/app 8348b7599ad7
+```
+
+To make sure a particular volume inside the container is used even if it is available outside
+
+```bash
+docker run -p 3000:3000 -v my-app-node-modules:/app/node_modules -v $(pwd -W):/app e2d6f811ad20
+```
+
+In this container "/app/node_modules" will be used even if the local development folder contains it.
+
+> The keyword "-W" is only applicable in windows gitbash to get the linux formatted path.
+
+```bash
+ docker run -v my-app-node-modules:/app/node_modules -v $(pwd -W):/app -it 185b1055a097 sh
+```
+
+> -v my-app-node-modules:/app/node_modules creates a named volume (my-app-node-modules) to store the node_modules directory inside the container.
+> This ensures the node_modules directory from the container image is used.
