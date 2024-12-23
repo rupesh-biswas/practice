@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: client-node-port
+spec:
+  type: NodePort
+  ports:
+    - port: 3050 # This is the port used to send data inside the cluster i.e. to multi-client pod
+      targetPort: 3000 # This is the port of the multi-client which will be exposed
+      nodePort: 31515 # The above 3000 port will be exposed on 31515. Node port is between 30000-32767, if not defined it is assigned by k8s randomly
+  selector:
+    component: web

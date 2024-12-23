@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: client-pod
+  labels:
+    component: web # This is the selector used in the node-port service
+spec:
+  containers:
+    - name: clinet
+      image: stephengrider/multi-worker
+      ports:
+        - containerPort: 3000
