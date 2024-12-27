@@ -24,3 +24,12 @@ One Node can have multiple deployments running under it.
 In development and production we use Deployment instead of pods (Kubernetes kind). Deployment has a config which it uses to spin up pods.
 
 Pods can come and go, this can lead to frequent IP endpoint changes. Service helps here by keeping track of each Pods IP and providing a single IP for the external world to connect to.
+
+
+Kubernetes Volume is tied to a POD and any container inside the pod can access it. But if a pod dies the volume also dies. e.g. 2 postgres service inside a pod can access the same volume and data is not lost if one of the postgres server dies. Whereas when the POD dies all data is lost.
+
+Persistent Volume is not tied to POD, so when a POD dies and new pod is created it can connect to the persistent volume with no data loss.
+
+Persistent Volume Claims is like a bill board telling the users what volume options they have. Users give their requirement via pod config to Kubernetes. Kubernetes then checks if the volume is already generated i.e. Statically provisioned persistent volume and gives it. Or else Kubernetes will create the required volume on the fly i.e. Dynamically provisioned Persistent Volume.
+
+In Kubernetes we store passwords in encrypted form by generating it using a special command and referencing it in future.
