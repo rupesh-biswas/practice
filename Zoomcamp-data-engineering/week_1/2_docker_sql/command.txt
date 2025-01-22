@@ -35,7 +35,8 @@ docker run -it \
     dpage/pgadmin4
 
 URL="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz"
-zones="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/misc/taxi_zone_lookup.csv"
+green_taxi_url="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-10.csv.gz"
+zones_url="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/misc/taxi_zone_lookup.csv"
 
 
 python ingest_data.py \
@@ -46,6 +47,18 @@ python ingest_data.py \
     --db=ny_taxi \
     --table_name=yellow_taxi_trips \
     --url=${URL}
+
+python ingest_data.py \
+    --user=root \
+    --password=root \
+    --host=localhost \
+    --port=5432 \
+    --db=ny_taxi \
+    --table_name=yellow_taxi_trips \
+    --zones_table_name=zones \
+    --url=${URL} \
+    --zones_url=${zones_url}
+
 
 docker build -t taxi_ingest:v001 .
 
