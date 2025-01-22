@@ -312,4 +312,4 @@ Answers:
 
 ## Submitting the solutions
 
-- Form for submitting: https://courses.datatalks.club/de-zoomcamp-2025/homework/hw1
+- Form for submitting: [https://courses.datatalks.club/de-zoomcamp-2025/homework/hw1](https://courses.datatalks.club/de-zoomcamp-2025/homework/hw1)
