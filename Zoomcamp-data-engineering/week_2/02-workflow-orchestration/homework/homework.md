@@ -108,7 +108,3 @@ ORDER BY 1, 2
 
 - Form for submitting: https://courses.datatalks.club/de-zoomcamp-2025/homework/hw2
 - Check the link above to see the due date
-
-## Solution
-
-Will be added after the due date
