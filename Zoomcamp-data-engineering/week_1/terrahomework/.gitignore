@@ -1,0 +1,38 @@
+keys/
+
+# Local Terraform state
+*.tfstate
+*.tfstate.*
+
+# Crash logs
+crash.log
+
+# Terraform plan files
+*.tfplan
+
+# Ignore override files as they are usually used to override specific settings
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Include .terraform directories in all child modules
+.terraform/
+.terraform.lock.hcl
+
+# Ignore sensitive variable files
+*.tfvars
+*.tfvars.json
+
+# Ignore backup files created by Terraform
+*.backup
+
+# IDE and Editor files (examples for common tools)
+.vscode/
+.idea/
+*.swp
+*.swo
+*.DS_Store
+
+# Ignore command outputs
+*.log
