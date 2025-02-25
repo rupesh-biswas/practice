@@ -1,0 +1,27 @@
+create database employee
+
+USE [employee]
+GO
+
+CREATE TABLE [dbo].[Employee1](
+	[EmployeeId] [int] NULL,
+	[Name] [varchar](20) NULL,
+	[Gender] [varchar](20) NULL,
+	[Salary] [int] NULL,
+	[Department] [varchar](20) NULL,
+	[Experience] [varchar](20) NULL
+) ON [PRIMARY]
+GO
+
+INSERT [dbo].[Employee1] ([EmployeeId], [Name], [Gender], [Salary], [Department], [Experience]) VALUES (5, N'Priya Sharma', N'Female', 45000, N'1', N'2years')
+GO
+INSERT [dbo].[Employee1] ([EmployeeId], [Name], [Gender], [Salary], [Department], [Experience]) VALUES (6, N'Rahul Patel', N'Male', 65000, N'2', N'2years')
+GO
+INSERT [dbo].[Employee1] ([EmployeeId], [Name], [Gender], [Salary], [Department], [Experience]) VALUES (7, N'Nisha Gupta', N'Female', 55000, N'3', N'2years')
+GO
+INSERT [dbo].[Employee1] ([EmployeeId], [Name], [Gender], [Salary], [Department], [Experience]) VALUES (8, N'Vikram Singh', N'Male', 75000, N'4', N'2years')
+GO
+INSERT [dbo].[Employee1] ([EmployeeId], [Name], [Gender], [Salary], [Department], [Experience]) VALUES (9, N'Aarti Desai', N'Female', 50000, N'1', N'2years')
+GO
+INSERT [dbo].[Employee1] ([EmployeeId], [Name], [Gender], [Salary], [Department], [Experience]) VALUES (10, N'manju', N'Female', 50000, N'1', N'2years')
+GO
