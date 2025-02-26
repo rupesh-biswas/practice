@@ -1,0 +1,52 @@
+Table_One                                      
+PartNumber ,   Item_ID         
+Table_Two        
+Manufacturer Name, Item_ID
+
+Show the manufacturer names and part numbers for part numbers that are associated with more than two distinct manufacturers.
+
+SELECT	
+	t2.Manufacture_Name,
+	t1.PartNumber
+FROM Table_One t1
+JOIN Table_Two t2 ON t1.Item_Id = t2.Item_Id
+GROUP BY 1, 2
+HAVING COUNT(DISTINCT Manufacture_Name) > 2
+
+WITH data as (
+	SELECT
+		t1.PartNumber,
+		COUNT(DISTINCT Manufacture_Name) count
+	FROM Table_One t1
+	JOIN Table_Two t2 ON t1.Item_Id = t2.Item_Id
+	GROUP BY 1
+) SELECT
+	t2.Manufacture_Name,
+	t1.PartNumber
+FROM Table_One t1
+JOIN Table_Two t2 ON t1.Item_Id = t2.Item_Id
+JOIN data d ON t1.PartNumber = d.PartNumber
+WHERE d.count > 2
+
+************ 1 **************
+Print all the products that have YUBA in their name
+'''
+
+product_list = ['Woodacre-YUBA2', 'YELLOWSTONE', 'YUBA', 'YUBA, TAMBO', 'YUBA: TAMARAMA-3']
+
+res = [x for lower(x) in product_list if x.str.contains('yuba')]
+
+
+
+For the given list below, find the Item_Number with highest Shortage; Print that Item_Number and its Shortage value
+
+
+shoratge_details = [['ASY-70542-12',100],['ASY-03988-11',600],['ASY-71999-10',150],['ASY-71999-12',500],['ASY-03988-11',300],['ASY-03988-12',20]]
+
+index = -1
+max = -1
+for i in range(len(shoratge_details)):
+	if (s[i][1] > max):
+		max = s[i][1]
+		index = i
+print(s[index])
