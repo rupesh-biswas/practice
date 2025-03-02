@@ -10,7 +10,7 @@ models:
     description: >
       Aggregated table of all taxi trips corresponding to both service zones (Green and yellow) per pickup zone, month and service.
       The table contains monthly sums of the fare elements used to calculate the monthly revenue. 
-      The table contains also monthly indicators like number of trips, and average trip distance. 
+      The table contains also monthly indicators like number of trips, and average trip distance 
     columns:
       - name: revenue_monthly_total_amount
         description: Monthly sum of the the total_amount of the fare charged for the trip per pickup zone, month and service.
