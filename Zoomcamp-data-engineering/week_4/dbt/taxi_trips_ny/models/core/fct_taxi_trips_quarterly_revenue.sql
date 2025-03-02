@@ -31,5 +31,4 @@ yoy_growth AS (
         AND curr.year = prev.year + 1
         AND curr.quarter = prev.quarter
 )
-
-SELECT * FROM yoy_growth;
+SELECT * FROM yoy_growth
