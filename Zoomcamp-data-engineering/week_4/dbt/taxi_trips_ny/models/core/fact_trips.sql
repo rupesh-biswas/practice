@@ -48,7 +48,14 @@ SELECT trips_unioned.tripid,
     trips_unioned.improvement_surcharge, 
     trips_unioned.total_amount, 
     trips_unioned.payment_type, 
-    trips_unioned.payment_type_description
+    trips_unioned.payment_type_description,
+
+    -- Time-based Dimensions
+    EXTRACT(YEAR FROM trips_unioned.pickup_datetime) AS year,
+    EXTRACT(QUARTER FROM trips_unioned.pickup_datetime) AS quarter,
+    CONCAT(EXTRACT(YEAR FROM trips_unioned.pickup_datetime), '/Q', EXTRACT(QUARTER FROM trips_unioned.pickup_datetime)) AS year_quarter,
+    EXTRACT(MONTH FROM trips_unioned.pickup_datetime) AS month
+    
 FROM trips_unioned
 INNER JOIN dim_zones pickup_zone
     ON pickup_zone.locationid = trips_unioned.pickup_locationid
