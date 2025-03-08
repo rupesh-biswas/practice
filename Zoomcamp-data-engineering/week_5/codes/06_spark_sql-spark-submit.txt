@@ -1,0 +1,37 @@
+python 06_spark_sql.py \
+        --input-green=data/pq/green/2020/*/ \
+        --input-yellow=data/pq/yellow/2020/*/ \
+        --output=data/report-2020
+
+
+URL="spark://SRCIND-21BQ9G3:7077"
+
+spark-submit \
+    --master="${URL}" \
+    06_spark_sql.py \
+        --input-green=data/pq/green/2021/*/ \
+        --input-yellow=data/pq/yellow/2021/*/ \
+        --output=data/report-2021
+
+
+--input-green=gs://zoomcamp-nytaxi-pq/pq/green/2021/*/ \
+--input-yellow=gs://zoomcamp-nytaxi-pq/pq/yellow/2021/*/ \
+--output=gs://zoomcamp-nytaxi-pq/report-2021
+
+gcloud dataproc jobs submit pyspark \
+    --cluster=cluster-9409 \
+    --region=us-central1 \
+    gs://zoomcamp-nytaxi-pq/code/06_spark_sql.py \
+    -- \
+        --input-green=gs://zoomcamp-nytaxi-pq/pq/green/2020/*/ \
+        --input-yellow=gs://zoomcamp-nytaxi-pq/pq/yellow/2020/*/ \
+        --output=gs://zoomcamp-nytaxi-pq/report-2020
+
+gcloud dataproc jobs submit pyspark \
+    --cluster=cluster-9409 \
+    --region=us-central1 \
+    gs://zoomcamp-nytaxi-pq/code/06_spark_sql-big-query.py \
+    -- \
+        --input-green=gs://zoomcamp-nytaxi-pq/pq/green/2020/*/ \
+        --input-yellow=gs://zoomcamp-nytaxi-pq/pq/yellow/2020/*/ \
+        --output=trips_data_all.reports-2020
