@@ -1,0 +1,22 @@
+jupyter-env
+*.csv
+*.csv.*
+*.csv-*
+*.gz
+*.gz.*
+
+
+# Ignore all Parquet files
+*.parquet
+*.parquet.*
+
+# Ignore Spark metadata and temporary files
+_spark_metadata/
+_spark_stage/
+_SUCCESS
+_METADATA
+_common_metadata
+*.crc  # Ignore all CRC checksum files
+._*
+
+
