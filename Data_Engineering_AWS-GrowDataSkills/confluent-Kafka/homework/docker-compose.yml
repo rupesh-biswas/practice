@@ -1,0 +1,93 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres_server
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydatabase
+    ports:
+      - "15432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./create_product_table.sql:/docker-entrypoint-initdb.d/create_product_table.sql
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "user", "-d", "mydatabase"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  base_image_builder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: my-python-base:latest
+    # This service is solely for building the image; it doesn't need to run
+    entrypoint: /bin/true
+    environment:
+      - ENVIRONMENT=docker
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  insert_dummy_data:
+    image: my-python-base:latest
+    container_name: insert_dummy_data
+    command: python insert_dummy_data.py
+    environment:
+      - PYTHONUNBUFFERED=1
+      - ENVIRONMENT=docker
+    volumes:
+      - ./results_json:/app/results_json
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  kafka_mysql_producer:
+    image: my-python-base:latest
+    container_name: kafka_mysql_producer
+    command: python kafka_mysql_producer.py
+    environment:
+      - PYTHONUNBUFFERED=1
+      - ENVIRONMENT=docker
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  kafka_consumer_1:
+    image: my-python-base:latest
+    container_name: kafka_consumer_1
+    command: python kafka_consumer_group.py
+    environment:
+      - PYTHONUNBUFFERED=1
+      - ENVIRONMENT=docker
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  kafka_consumer_2:
+    image: my-python-base:latest
+    container_name: kafka_consumer_2
+    command: python kafka_consumer_group.py
+    environment:
+      - PYTHONUNBUFFERED=1
+      - ENVIRONMENT=docker
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  kafka_consumer_3:
+    image: my-python-base:latest
+    container_name: kafka_consumer_3
+    command: python kafka_consumer_group.py
+    environment:
+      - PYTHONUNBUFFERED=1
+      - ENVIRONMENT=docker
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres_data:

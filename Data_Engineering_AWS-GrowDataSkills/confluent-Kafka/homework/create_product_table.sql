@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS product CASCADE;
+
+CREATE TABLE IF NOT EXISTS product (
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR(255),
+    category VARCHAR(255),
+    price FLOAT,
+    last_updated TIMESTAMP
+);

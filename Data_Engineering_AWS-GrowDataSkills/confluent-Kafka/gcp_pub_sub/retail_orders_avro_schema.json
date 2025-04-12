@@ -1,0 +1,44 @@
+{
+  "type": "record",
+  "name": "Order",
+  "namespace": "com.example",
+  "fields": [
+    {
+      "name": "order_id",
+      "type": "int"
+    },
+    {
+      "name": "customer_id",
+      "type": "int"
+    },
+    {
+      "name": "item",
+      "type": "string"
+    },
+    {
+      "name": "quantity",
+      "type": "int"
+    },
+    {
+      "name": "price",
+      "type": "float"
+    },
+    {
+      "name": "shipping_address",
+      "type": "string"
+    },
+    {
+      "name": "order_status",
+      "type": {
+        "type": "enum",
+        "name": "OrderStatus",
+        "symbols": ["Shipped", "Pending", "Delivered", "Cancelled"]
+      }
+    },
+    {
+      "name": "creation_date",
+      "type": "string",
+      "logicalType": "timestamp-millis"
+    }
+  ]
+}

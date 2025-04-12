@@ -1,0 +1,17 @@
+# This file contains sensitive information and should not be shared publicly.
+# Values not in quotes ""
+
+# Kafka configuration for Confluent Cloud
+KAFKA_BOOTSTRAP_SERVERS=example.com 
+KAFKA_SASL_MECHANISMS= 
+KAFKA_SECURITY_PROTOCOL=
+SASL_KAFKA_USERNAME= 
+SASL_KAFKA_PASSWORD= 
+
+# Schema Registry configuration for Confluent Cloud
+SCHEMA_REGISTRY_URL= 
+SCHEMA_REGISTRY_API_KEY= 
+SCHEMA_REGISTRY_API_SECRET= 
+
+# Kafka topic name
+KAFKA_TOPIC= 
