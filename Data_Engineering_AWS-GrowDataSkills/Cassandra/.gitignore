@@ -1,0 +1,41 @@
+# 🔐 Astra DB token files
+*-token.json
+
+# 📁 Astra secure connect credentials (DON'T COMMIT!)
+secure-connect-*/
+secure-connect-*.zip
+
+# 🧪 Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# 📓 Jupyter runtime files
+~$*.ipynb
+*.nbconvert.ipynb
+
+# 🧠 Python cache files
+__pycache__/
+*.py[cod]
+
+# 📦 Python virtual environments
+.env/
+.venv/
+venv/
+env/
+ENV/
+
+# 📁 VS Code and IDE-specific settings
+.vscode/
+.idea/
+
+# 🔐 Environment variable files
+.env
+*.env
+
+# 📄 Logs and local config
+*.log
+*.sqlite3
+*.db
+
+# 🖥️ macOS / Windows system files
+.DS_Store
+Thumbs.db
