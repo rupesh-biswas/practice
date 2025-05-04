@@ -1,0 +1,65 @@
+{
+    "type": "record",
+    "name": "Order",
+    "fields": [
+        {
+            "name": "order_id",
+            "type": "string"
+        },
+        {
+            "name": "customer_id",
+            "type": "string"
+        },
+        {
+            "name": "order_status",
+            "type": "string"
+        },
+        {
+            "name": "order_purchase_timestamp",
+            "type": {
+                "type": "long",
+                "logicalType": "timestamp-millis"
+            }
+        },
+        {
+            "name": "order_approved_at",
+            "type": [
+                "null",
+                {
+                    "type": "long",
+                    "logicalType": "timestamp-millis"
+                }
+            ],
+            "default": null
+        },
+        {
+            "name": "order_delivered_carrier_date",
+            "type": [
+                "null",
+                {
+                    "type": "long",
+                    "logicalType": "timestamp-millis"
+                }
+            ],
+            "default": null
+        },
+        {
+            "name": "order_delivered_customer_date",
+            "type": [
+                "null",
+                {
+                    "type": "long",
+                    "logicalType": "timestamp-millis"
+                }
+            ],
+            "default": null
+        },
+        {
+            "name": "order_estimated_delivery_date",
+            "type": {
+                "type": "long",
+                "logicalType": "timestamp-millis"
+            }
+        }
+    ]
+}

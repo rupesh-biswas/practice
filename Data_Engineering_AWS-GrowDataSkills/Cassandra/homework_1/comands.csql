@@ -1,0 +1,17 @@
+--  Keyspace: ecommerce
+
+--  Table: orders
+
+CREATE TABLE ecommerce.orders (
+    order_id uuid,
+    customer_id uuid,
+    order_status text,
+    order_purchase_timestamp timestamp,
+    order_approved_at timestamp,
+    order_delivered_carrier_date timestamp,
+    order_delivered_customer_date timestamp,
+    order_estimated_delivery_date timestamp,
+    OrderHour int,
+    OrderDayOfWeek text,
+    PRIMARY KEY ((customer_id), order_id, order_purchase_timestamp)
+);
