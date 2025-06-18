@@ -1,0 +1,4 @@
+1. Latest cuda drivers.
+2. Docker and Docker compose.
+3. Docker inside WSL (!important: This works only in linux environment)
+4. llamba model specs.
